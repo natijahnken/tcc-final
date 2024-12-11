@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <link rel="stylesheet" href="fa/css/font-awesome.min.css"> 
+    <title>Dados dos Pacientes</title>
+
+    <meta charset="UTF-8" />
+</head>
+<body>
+    <div id="overlay" class="overlay">
+        <div id="conteudo-overlay">
+          
+        </div>
+        
+      </div>
+      <div class="header">
+          Painel de Controle de Monitoramento Remoto
+      </div>
+      <input type="hidden" id="selecionado">
+      <div class="filters">
+          <div class="filter-item">
+              <label for="nome">Nome do Paciente:</label>
+              <input type="text" id="nome" name="nome">
+              <strong class="selected-texto">Pesquise por nome,
+      sobrenome ou até uma parte do nome que
+                deseja localizar.</strong>
+          </div>
+          
+          <div class="filter-item">
+              <label for="freqCard">Frequência Cardíaca:</label>
+              <input type="number" id="freqMin" placeholder="Mínimo">
+              <input type="number" id="freqMax" placeholder="Máximo">
+            <strong class="selected-texto">Altere mínimo e máximo de intervalos para ver quais pacientes estão fora dos limites.
+            
+            </strong>
+          </div>
+      
+          <div class="filter-item">
+              <label for="freqResp">Frequência Respiratória:</label>
+              <input type="number" id="respMin" placeholder="Mínimo">
+              <input type="number" id="respMax" placeholder="Máximo">
+             <strong class="selected-texto">Altere mínimo e máximo de intervalos para ver quais pacientes estão fora dos limites.</strong>
+          </div>
+      
+          <div class="filter-item">
+              <label for="atividade">Atividade Física:</label>
+              <input type="number" id="ativMin" placeholder="Mínimo">
+              <input type="number" id="ativMax" placeholder="Máximo">
+             <strong class="selected-texto">Altere mínimo e máximo de intervalos para ver quais pacientes estão fora dos limites.</strong>
+            
+            <br><button class="pular-tutorial"> Avançar</button>
+          </div>
+      
+          <div class="filter-item">
+              <button id="pesquisar">Filtrar</button>
+              <button onclick="limparFiltros()">Limpar Filtros</button>
+          </div>
+      </div>
+      <div class="selected-texto">Clique aqui para ampliar e
+      visualizar todos os dados
+      de todos os pacientes. <br><br><button class="pular-tutorial"> Avançar</button></div>
+      <div class="selected-texto">Clicando no ícone, expande os dados apenas
+      do paciente da linha, todos os botões
+      possuem gráficos, ou seja, clicando você irá
+        ter acesso aos dados registrados. <br><br><button class="pular-tutorial"> Avançar</button></div>
+      
+      <div class="container" id="container">
+          <table class="tabela-pacientes">
+              <thead>
+                  <tr>
+                      <th onclick="ordenarTabela('sort-nome', 'nome')">Nome <i id='sort-nome' class="fa geral"></i></th>
+                      <th onclick="ordenarTabela('sort-idade', 'idade')">Idade <i id='sort-idade' class="fa geral"></i></th>
+                      <th onclick="ordenarTabela('sort-medicamento', 'medicamento')">Medicamento <i id='sort-medicamento' class="fa geral"></i></th>
+                      <th onclick="ordenarTabela('sort-freqcard', 'freqCard')">Frequência Cardíaca <i id='sort-freqcard' class="fa geral"></i></th>
+                      <th onclick="ordenarTabela('sort-freqresp', 'freqResp')">Frequência Respiratória <i id='sort-freqresp' class="fa geral"></i></th>
+                      <th onclick="ordenarTabela('sort-ativresp', 'ativFisica')">Atividade Física <i id='sort-ativresp' class="fa geral"></i></th>
+                    <th id="expandir-todos">Expandir</th>
+                  </tr>
+              </thead>
+              <tbody id="pacientes-tabela">
+                  <!-- Linhas de pacientes serão carregadas aqui -->
+              </tbody>
+          </table>
+      </div>
+    <script src="script3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</body>
+</html>
